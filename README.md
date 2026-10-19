@@ -4,8 +4,7 @@ AI OPs Assignment 4 Submission
 
 This README file goes through all major submission points.
 
-- Assignment specification can be found as `Assignment 4.pdf` in the main directory.
-- Video Submission Link:
+- Video Submission Link: https://drive.google.com/file/d/1VumBP8rWRHBTfg4jBnichwZ3nZq4hTI-/view?usp=sharing
 
 - `app.py` contains the Streamlit image-captioning application and Prometheus instrumentation.
 - `prometheus.yml` configures Prometheus to scrape the application and node_exporter.
