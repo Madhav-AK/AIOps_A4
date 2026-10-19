@@ -5,8 +5,8 @@
     "name": "ad2jdpv",
     "namespace": "default",
     "uid": "67012f18-05ee-4144-b745-2d84170213e7",
-    "resourceVersion": "1792414832171005",
-    "generation": 9,
+    "resourceVersion": "1792421336040012",
+    "generation": 10,
     "creationTimestamp": "2026-10-19T08:05:06Z",
     "labels": {
       "grafana.app/deprecatedInternalID": "4408040278269952"
@@ -15,7 +15,7 @@
       "grafana.app/createdBy": "user:eg0zenjlyzfnka",
       "grafana.app/saved-from-ui": "Grafana v13.2.3 (90ffed056f)",
       "grafana.app/updatedBy": "user:eg0zenjlyzfnka",
-      "grafana.app/updatedTimestamp": "2026-10-19T13:00:32Z"
+      "grafana.app/updatedTimestamp": "2026-10-19T14:48:56Z"
     }
   },
   "spec": {
@@ -939,15 +939,12 @@
                       {
                         "value": 0,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
                   "color": {
-                    "mode": "palette-classic"
+                    "mode": "palette-classic",
+                    "seriesBy": "max"
                   },
                   "custom": {
                     "axisBorderShow": false,
@@ -956,9 +953,9 @@
                     "axisLabel": "Images per minute",
                     "axisPlacement": "auto",
                     "barAlignment": 0,
-                    "barWidthFactor": 0.6,
+                    "barWidthFactor": 0.9,
                     "drawStyle": "line",
-                    "fillOpacity": 25,
+                    "fillOpacity": 0,
                     "gradientMode": "none",
                     "hideFrom": {
                       "legend": false,
@@ -967,12 +964,15 @@
                     },
                     "insertNulls": false,
                     "lineInterpolation": "linear",
+                    "lineStyle": {
+                      "fill": "solid"
+                    },
                     "lineWidth": 1,
-                    "pointSize": 5,
+                    "pointSize": 1,
                     "scaleDistribution": {
                       "type": "linear"
                     },
-                    "showPoints": "auto",
+                    "showPoints": "always",
                     "showValues": false,
                     "spanNulls": false,
                     "stacking": {
@@ -984,7 +984,38 @@
                     }
                   }
                 },
-                "overrides": []
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byName",
+                      "scope": "series",
+                      "options": "bulk"
+                    },
+                    "properties": [
+                      {
+                        "id": "color",
+                        "value": {
+                          "fixedColor": "green",
+                          "mode": "fixed"
+                        }
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            0,
+                            10
+                          ],
+                          "fill": "dot"
+                        }
+                      },
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 3
+                      }
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -1137,10 +1168,6 @@
                       {
                         "value": 0,
                         "color": "green"
-                      },
-                      {
-                        "value": 80,
-                        "color": "red"
                       }
                     ]
                   },
@@ -1182,7 +1209,31 @@
                     }
                   }
                 },
-                "overrides": []
+                "overrides": [
+                  {
+                    "matcher": {
+                      "id": "byRegexp",
+                      "scope": "series",
+                      "options": "bulk"
+                    },
+                    "properties": [
+                      {
+                        "id": "custom.lineWidth",
+                        "value": 3
+                      },
+                      {
+                        "id": "custom.lineStyle",
+                        "value": {
+                          "dash": [
+                            0,
+                            10
+                          ],
+                          "fill": "dot"
+                        }
+                      }
+                    ]
+                  }
+                ]
               }
             }
           }
