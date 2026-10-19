@@ -224,3 +224,4 @@ alertmanager-0.34.1.linux-amd64
 node_exporter-1.12.1.linux-amd64
 prometheus-3.15.0.linux-amd64
 prometheus-data/
+example_images/200_image_zip.zip
